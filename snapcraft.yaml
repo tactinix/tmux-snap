@@ -1,0 +1,30 @@
+name: tmux
+version: '3.2a'
+summary: Access and control terminals (or windows) from a single terminal.
+description: |
+        tmux is a "terminal multiplexer", it enables a number of terminals (or windows)
+        to be accessed and controlled from a single terminal. tmux is intended to be a
+        simple, modern, BSD-licensed alternative to programs such as GNU screen.
+grade: stable # Use stable or devel
+confinement: classic
+base: core20
+
+architectures:
+  - build-on: [amd64]
+    run-on: [armhf, arm64, amd64]
+
+apps:
+        tmux:
+                command: usr/local/bin/tmux
+
+parts:
+        tmux:
+                plugin: autotools
+                source: https://github.com/tmux/tmux/releases/download/3.2a/tmux-3.2a.tar.gz
+                build-packages:
+                        - make
+                        - libevent-dev
+                        - libncurses-dev
+                        - libtinfo5
+                stage-packages:
+                        - libevent-dev

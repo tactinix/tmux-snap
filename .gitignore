@@ -1,0 +1,6 @@
+# Ignore file and directories needed/created by snapcraft on git push.
+parts/
+prime/
+snap/
+stage/
+*.snap
